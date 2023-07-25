@@ -2,6 +2,7 @@ require("dotenv").config()
 const multer = require("multer")
 const mongoose = require("mongoose")
 const bcrypt = require("bcrypt")
+const nodemailer = require('nodemailer');
 const File = require("./models/File")
 
 const express = require("express")
@@ -29,7 +30,10 @@ app.post("/upload", upload.single("file"), async (req, res) => {
 
   const file = await File.create(fileData)
 
+
   res.render("index", { fileLink: `${req.headers.origin}/file/${file.id}` })
+
+  
 })
 
 app.route("/file/:id").get(handleDownload).post(handleDownload)
