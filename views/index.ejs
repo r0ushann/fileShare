@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>File Share</title>
+</head>
+<body>
+    <h1 style="text-align: center;">File Share📂</h1>
+    <p style="margin: top 0px;text-align: center; text-decoration-color: antiquewhite;">share your files securely!</p>
+
+  <form action="/upload" method="post" style="display: grid; gap: .5rem; grid-template-columns: auto 1fr; max-width: 500px; margin: 0 auto; margin-top: 5rem;" enctype="multipart/form-data">
+    <label for="file">File to be send:</label>
+    <input type="file" id="file" name="file" required />
+    <label for="password">Password:</label>
+    <input type="password" id="password" name="password" placeholder="enter a secure password..."/>
+    <p style="font-size: small; font-weight: lighter;">(This password will be required while receiving the File!)</p>
+    <button style="grid-column: span 2;" type="submit">Share</button>
+  </form>
+  <% if (locals.fileLink != null) { %>
+    <div style="margin-bottom: 1rem;max-width: 500px; margin: 0 auto;text-align: center; margin-top: 5rem; ">
+      Your file is successfully uploaded to✅:   
+      <a href="<%= locals.fileLink %>"><%= locals.fileLink %></a>
+    </div>
+  <% } %>
+</body>
+<footer style="text-decoration: none; position:relative ; margin-top: 180px; margin-bottom: 2px; text-align: center;">made by: <a style="text-decoration: none;" href="https://www.github.com/r0ushann">roushan🦤</a></footer>
+</html>
